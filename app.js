@@ -24,7 +24,6 @@ const fetchCountries = async () => {
     try {
         // Estructuración limpia de los datos utilizando el método .map() exigido por la rúbrica
         countriesData = localCountriesData.map(country => {
-            // Desestructuración de Objetos individualizados
             const { name, capital, region, pop, lang, flag } = country;
             
             return {
@@ -57,7 +56,6 @@ const renderCards = (list) => {
         return;
     }
 
-    // Uso mandatorio de .forEach() para la inyección de componentes visuales
     list.forEach(country => {
         const { commonName, capitalName, regionName, populationCount, flagImg, langList } = country;
 
@@ -81,17 +79,18 @@ const renderCards = (list) => {
 };
 
 /**
- * 3. Implementación del método .filter() mediante Eventos de Selección (Select)
+ * 3. Implementación del método .filter() DINÁMICO
  */
 document.getElementById('region-select').addEventListener('change', (e) => {
-    const selectedRegion = e.target.value;
+    const selectedRegion = e.target.value.toLowerCase();
 
     if (selectedRegion === 'all') {
         renderCards(countriesData);
     } else {
-        // Uso estricto de .filter() para segmentar las regiones geográficas
+        // CORRECCIÓN: Ahora compara dinámicamente con la región seleccionada (selectedRegion)
         const filteredCountries = countriesData.filter(c => 
-            c.regionName.toLowerCase() === selectedRegion.toLowerCase()
+            c.regionName.toLowerCase().includes(selectedRegion) || 
+            selectedRegion.includes(c.regionName.toLowerCase())
         );
         renderCards(filteredCountries);
     }
