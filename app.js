@@ -1,5 +1,5 @@
 // URL base de la API Pública de Países
-const API_URL = 'https://restcountries.com/v3.1/all';
+const API_URL = 'https://raw.githubusercontent.com/iancoleman/cia_world_factbook_api/master/data/factbook.json';
 
 // Almacenamiento local de datos para ejecutar filtros en tiempo real
 let countriesData = [];
