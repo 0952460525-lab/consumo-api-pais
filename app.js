@@ -88,10 +88,21 @@ document.getElementById('region-select').addEventListener('change', (e) => {
         renderCards(countriesData);
     } else {
         // CORRECCIÓN: Ahora compara dinámicamente con la región seleccionada (selectedRegion)
-        const filteredCountries = countriesData.filter(c => 
-            c.regionName.toLowerCase().includes(selectedRegion) || 
-            selectedRegion.includes(c.regionName.toLowerCase())
-        );
+        c/**
+ * 3. Implementación del método .filter() DINÁMICO
+ */
+document.getElementById('region-select').addEventListener('change', (e) => {
+    // Captura el valor del HTML en minúsculas y sin espacios
+    const selectedRegion = e.target.value.toLowerCase().trim();
+
+    if (selectedRegion === 'all' || selectedRegion === '') {
+        renderCards(countriesData);
+    } else {
+        // CORRECCIÓN: Compara dinámicamente el continente real que el usuario seleccionó
+        const filteredCountries = countriesData.filter(c => {
+            const currentRegion = c.regionName.toLowerCase().trim();
+            return currentRegion.includes(selectedRegion) || selectedRegion.includes(currentRegion);
+        });
         renderCards(filteredCountries);
     }
 });
