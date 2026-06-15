@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <colgante charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador Global de Países - API RestCountries</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🌏 Observatorio Geopolítico Global</h1>
+        <p>Consumo dinámico de datos mediante herramientas avanzadas de JavaScript</p>
+    </header>
+
+    <main>
+        <section class="filters-container">
+            <label for="region-select">Filtrar por Región Geográfica:</label>
+            <select id="region-select">
+                <option value="all">Mostrar Todos los Continentes</option>
+                <option value="Americas">América</option>
+                <option value="Europe">Europa</option>
+                <option value="Africa">África</option>
+                <option value="Asia">Asia</option>
+                <option value="Oceania">Oceanía</option>
+            </select>
+        </section>
+
+        <section id="countries-grid" class="grid-container">
+            <div class="loading">Cargando registros oficiales desde la API...</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Desarrollo de Aplicaciones Web Frontend. Programa Académico Online.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
